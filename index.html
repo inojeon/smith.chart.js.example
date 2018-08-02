@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Smith Chart</title>
+		<!-- Latest compiled and minified CSS -->
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="./js/Chart.min.js"></script>
+		<script src="./js/Chart.smith.js"></script>
+		<style>
+			body{
+				padding: 0;
+				margin: 0;
+			}
+			#canvas-holder{
+				width:60%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="canvas-holder">
+			<canvas id="chart-area" width="1200" height="1200"/>
+		</div>
+
+
+	<script>
+		window.onload = function() {
+			var ctx = document.getElementById("chart-area").getContext("2d");
+			window.mySmith = new Chart(ctx, {
+				type: 'smith',
+				options: {
+					elements: {
+						point: {
+							pointStyle: 'cross',
+							radius: 10,
+							hoverRadius: 10,
+							borderColor: 'black'
+						}
+					}
+				},
+				data: {
+					datasets: [{
+						label: 'Smith Chart Example',
+						data: [ 
+							{ real : 1.0, imag : 0},
+							{ real : 0, imag : 1.0}
+						]
+					}]
+				}
+			})
+		};
+	</script>
+	</body>
+</html>
